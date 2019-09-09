@@ -1,2 +1,4 @@
 /venv/
 /__pycache__/
+mnists/
+bijectors/__pycache__/
