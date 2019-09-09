@@ -53,6 +53,7 @@ def build_model(channels=3):
     # forward setup
     fwd = tfp.layers.DistributionLambda(
         lambda x: conv1x1(tfd.Deterministic(x)))
+    print(conv1x1.trainable_variables)
     fwd.vars = conv1x1.trainable_variables
 
     # inverse setup

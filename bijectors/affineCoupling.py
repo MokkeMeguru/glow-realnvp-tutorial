@@ -46,7 +46,7 @@ class _nn(layers.Layer):
 class AffineCoupling(tfp.bijectors.Bijector):
     def __init__(self,
                  batch_shape,
-                 hidden_filters=512,
+                 hidden_filters=32,
                  validate_args=False,
                  name='affine_coupling'):
         super(AffineCoupling, self).__init__(forward_min_event_ndims=3,
