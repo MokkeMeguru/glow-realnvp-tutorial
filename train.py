@@ -122,6 +122,7 @@ def _test():
                                                   avg_loss.result()))
             avg_loss.reset_states()
 
+
 # In [835]: _test()
 # batch_shape 12
 # batch_shape 12
@@ -169,7 +170,6 @@ if __name__ == '__main__':
 #   File "<string>", line 3, in raise_from
 # tensorflow.python.framework.errors_impl.ResourceExhaustedError: OOM when allocating tensor with shape[100,16,16,512] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc [Op:Conv2DBackpropInput]
 
-
 # TODO: via terminal, It's training may be failed ....
 #  多分これはフレームワークの問題このあたりの issue を書く
 # TODO: loss が下がらない
@@ -177,6 +177,7 @@ if __name__ == '__main__':
 # ref tensorflow/tensorflow-probability #545
 #
 # main()
+# training...
 # tf.Tensor(2.634636, shape=(), dtype=float32)
 # Step 0 :  Loss 2.634636
 # tf.Tensor(0.9256006, shape=(), dtype=float32)
@@ -203,3 +204,77 @@ if __name__ == '__main__':
 # Step 1100 :  Loss 0.919018
 # tf.Tensor(0.91901004, shape=(), dtype=float32)
 # Step 1200 :  Loss 0.919010
+# tf.Tensor(0.91899383, shape=(), dtype=float32)
+# Step 1300 :  Loss 0.919003
+# tf.Tensor(0.9189888, shape=(), dtype=float32)
+# Step 1400 :  Loss 0.918998
+# tf.Tensor(0.91899323, shape=(), dtype=float32)
+# Step 1500 :  Loss 0.918999
+# tf.Tensor(0.9189841, shape=(), dtype=float32)
+# Step 1600 :  Loss 0.918992
+# tf.Tensor(0.91897774, shape=(), dtype=float32)
+# Step 1700 :  Loss 0.918988
+# tf.Tensor(0.9189818, shape=(), dtype=float32)
+# Step 1800 :  Loss 0.918991
+# tf.Tensor(0.9230054, shape=(), dtype=float32)
+# Step 1900 :  Loss 0.924658
+# tf.Tensor(0.9190056, shape=(), dtype=float32)
+# Step 2000 :  Loss 0.919281
+# tf.Tensor(0.91899455, shape=(), dtype=float32)
+# Step 2100 :  Loss 0.918995
+# tf.Tensor(0.9189751, shape=(), dtype=float32)
+# Step 2200 :  Loss 0.918985
+# tf.Tensor(0.9189748, shape=(), dtype=float32)
+# Step 2300 :  Loss 0.918979
+# tf.Tensor(0.9189808, shape=(), dtype=float32)
+# Step 2400 :  Loss 0.918977
+# tf.Tensor(0.9189701, shape=(), dtype=float32)
+# Step 2500 :  Loss 0.918975
+# tf.Tensor(0.9189719, shape=(), dtype=float32)
+# Step 2600 :  Loss 0.918972
+# tf.Tensor(0.9189726, shape=(), dtype=float32)
+# Step 2700 :  Loss 0.918969
+# tf.Tensor(0.91897076, shape=(), dtype=float32)
+# Step 2800 :  Loss 0.918969
+# tf.Tensor(0.91896725, shape=(), dtype=float32)
+# Step 2900 :  Loss 0.918968
+# tf.Tensor(0.9189659, shape=(), dtype=float32)
+# Step 3000 :  Loss 0.918967
+# tf.Tensor(0.9189653, shape=(), dtype=float32)
+# Step 3100 :  Loss 0.918966
+# tf.Tensor(0.91896284, shape=(), dtype=float32)
+# Step 3200 :  Loss 0.918964
+# tf.Tensor(0.9189665, shape=(), dtype=float32)
+# Step 3300 :  Loss 0.918964
+# tf.Tensor(0.91896605, shape=(), dtype=float32)
+# Step 3400 :  Loss 0.918962
+# tf.Tensor(0.91896015, shape=(), dtype=float32)
+# Step 3500 :  Loss 0.918962
+# tf.Tensor(0.9189623, shape=(), dtype=float32)
+# Step 3600 :  Loss 0.918962
+# tf.Tensor(0.9189602, shape=(), dtype=float32)
+# Step 3700 :  Loss 0.918961
+# tf.Tensor(0.9189611, shape=(), dtype=float32)
+# Step 3800 :  Loss 0.918962
+# tf.Tensor(0.91898614, shape=(), dtype=float32)
+# Step 3900 :  Loss 0.918962
+# tf.Tensor(0.9189654, shape=(), dtype=float32)
+# Step 4000 :  Loss 0.918964
+# tf.Tensor(0.91898674, shape=(), dtype=float32)
+# Step 4100 :  Loss 0.918967
+# tf.Tensor(0.9191143, shape=(), dtype=float32)
+# Step 4200 :  Loss 0.918971
+# tf.Tensor(0.9189589, shape=(), dtype=float32)
+# Step 4300 :  Loss 0.918965
+# tf.Tensor(0.9189588, shape=(), dtype=float32)
+# Step 4400 :  Loss 0.918975
+# tf.Tensor(0.91899645, shape=(), dtype=float32)
+# Step 4500 :  Loss 0.918983
+# tf.Tensor(0.91896373, shape=(), dtype=float32)
+# Step 4600 :  Loss 0.918959
+# tf.Tensor(0.91896635, shape=(), dtype=float32)
+# Step 4700 :  Loss 0.918966
+# tf.Tensor(0.91958547, shape=(), dtype=float32)
+# Step 4800 :  Loss 0.919021
+# tf.Tensor(0.91895497, shape=(), dtype=float32)
+# Step 4900 :  Loss 0.918985

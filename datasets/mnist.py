@@ -26,6 +26,7 @@ def write_tfrecord(data, label, filename):
 
 def create_mnist():
     (train_x, train_y), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
+    # train data size 60000
     if not os.path.exists('mnists'):
         os.mkdir('mnists')
     write_tfrecord(train_x, train_y,
