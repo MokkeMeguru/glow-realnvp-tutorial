@@ -36,6 +36,7 @@ def trainable_lu_factorization(event_size,
         #                                       random_matrix)
         # permutation = tfp.util.DeferredTensor(lambda m: lu_p(m)[1],
         #                                       random_matrix,
+        #                                       # trainable=False,
         #                                       dtype=tf.int32,
         #                                       shape=random_matrix.shape[:-1])
         lower_upper = tf.Variable(lu_p(random_matrix)[0])
@@ -127,3 +128,4 @@ if __name__ == '__main__':
 # tf.Tensor(-2.0933454e-05, shape=(), dtype=float32)
 # (2, 28, 28, 3)
 ###########################################################
+

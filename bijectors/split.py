@@ -9,7 +9,8 @@ class _SplitLayer(layers.Layer):
         super(_SplitLayer, self).__init__()
         self.conv2d_1 = layers.Conv2D(filters=filter_size,
                                       kernel_size=(3, 3),
-                                      padding='same')
+                                      padding='same',
+                                      name='split')
 
     def call(self, x):
         return self.conv2d_1(x)
@@ -44,11 +45,11 @@ class Split(tfp.bijectors.Bijector):
         mean, logs = tf.split(theta, self.split_channels, axis=-1)
         fldj = -0.5 * (logs * 2 + tf.math.square(xb - mean) /
                        tf.math.exp(logs * 2) + tf.math.log(2 * np.pi))
-        fldj = tf.math.reduce_sum(fldj, axis=[1, 2, 3])
+        fldj = tf.math.reduce_mean(fldj, axis=[1, 2, 3])
         return fldj
 
     def _inverse_log_det_jacobian(self, y):
-        ildj = tf.zeros([tf.shap(y)[0]], dtype=y.dtype)
+        ildj = tf.zeros([tf.shape(y)[0]], dtype=y.dtype)
         return ildj
 
 
@@ -58,4 +59,5 @@ def main():
     y = split.forward(x)
     z = split.inverse(y)
     loss = tf.reduce_mean(z - x)
+    print(split.inverse_log_det_jacobian(y, event_ndims=3).numpy())
     print(loss.numpy())

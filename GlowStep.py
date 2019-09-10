@@ -16,6 +16,7 @@ class GlowStep(tfp.bijectors.Bijector):
         layers = []
         batch_shape = np.array(batch_shape)
         for i in range(depth):
+            print(i, ':', batch_shape[-1])
             t_lower_upper, t_permutation = conv1x1_official.trainable_lu_factorization(
                 batch_shape[-1])
             layers.append(
@@ -26,6 +27,7 @@ class GlowStep(tfp.bijectors.Bijector):
                              name=self._name + '/matvecLU_{}'.format(i)))
             layers.append(
                 affineCoupling.AffineCoupling(batch_shape=batch_shape,
+                                              hidden_filters=256,
                                               name=self._name +
                                               '/affinecoupling_{}'.format(i)))
         self.flow = tfp.bijectors.Chain(list(reversed(layers)))

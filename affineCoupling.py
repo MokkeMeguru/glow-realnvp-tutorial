@@ -2,7 +2,6 @@
 import tensorflow as tf
 from tensorflow.keras import layers
 import tensorflow_probability as tfp
-import tensorflow_probability.python.distributions as tfd
 
 
 class _nn(layers.Layer):

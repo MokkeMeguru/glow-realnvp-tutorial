@@ -34,5 +34,31 @@ def create_mnist():
     write_tfrecord(test_x, test_y, os.path.join('mnists', 'testset.tfrecord'))
 
 
+def parse_function(serialized_example):
+    feature = tf.io.parse_single_example(serialized_example,
+                                         features={
+                                             'data':
+                                             tf.io.FixedLenFeature(
+                                                 (),
+                                                 dtype=tf.string,
+                                                 default_value=''),
+                                             'label':
+                                             tf.io.FixedLenFeature(
+                                                 (),
+                                                 dtype=tf.int64,
+                                                 default_value=0)
+                                         })
+    data = tf.io.decode_raw(feature['data'], out_type=tf.uint8)
+    data = tf.reshape(data, [28, 28, 1])
+    data = tf.pad(data, paddings=[[2, 2], [2, 2], [0, 0]], mode='CONSTANT')
+    data = tf.cast(data, dtype=tf.float32)
+    data = (data / (255.0 * 2)) - 1
+    # data = tf.image.grayscale_to_rgb(data)
+    # image shape: [32, 32, 3]
+    # image shape: [32, 32, 1]
+    label = tf.cast(feature['label'], dtype=tf.int32)
+    return data, label
+
+
 if __name__ == '__main__':
     create_mnist()

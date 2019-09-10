@@ -1,25 +1,23 @@
 import numpy as np
+import tensorflow as tf
 import tensorflow_probability as tfp
 from GlowStep import GlowStep
 from bijectors.split import Split
 from bijectors.squeeze import Squeeze
-import tensorflow as tf
 import tensorflow_probability.python.bijectors as tfb
-import tensorflow_probability.python.distributions as tfd
 
 
 class Glow(tfp.bijectors.Bijector):
     def __init__(self,
                  batch_shape,
                  levels=2,
-                 depth=2,
+                 depth=3,
                  validate_args=False,
                  name='Glow'):
         super(Glow, self).__init__(forward_min_event_ndims=3,
                                    validate_args=validate_args,
                                    name=name)
         batch_shape = np.array(batch_shape)
-        batch_shape = np.array([None, 32, 32, 3])
         layers = []
         for i in range(levels):
             batch_shape[-1] = batch_shape[-1] * 4
@@ -50,6 +48,8 @@ class Glow(tfp.bijectors.Bijector):
 
 
 def main():
+    # Check reversive
+    # y is any distributions ->  y ~ NormalDistribution
     glow = tfb.Invert(Glow([None, 32, 32, 3]))
     x = tf.random.normal([2, 32, 32, 3])
     y = glow.inverse(x)
@@ -61,3 +61,4 @@ def main():
     # y = glow.forward(x)
     # z = glow.inverse(y)
     # print(tf.reduce_mean(x - z))
+    # glow.inverse_log_det_jacobian(y, event_ndims=3)

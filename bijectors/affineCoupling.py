@@ -86,23 +86,26 @@ class AffineCoupling(tfp.bijectors.Bijector):
         log_scale, _ = tf.keras.layers.Lambda(
             lambda e: tf.split(e, self.split_channels, axis=-1))(logs_t)
         scale = tf.exp(log_scale)
-        ildj = -tf.math.reduce_sum(tf.math.log(tf.abs(scale)))
+        ildj = - tf.math.reduce_sum(tf.math.log(tf.abs(scale)))
+
         # expand batch_shape
         ildj = tf.tile([ildj], [tf.shape(y)[0]])
         return ildj
 
 
 def main():
-    x = tf.keras.Input([28, 28, 3])
-    affine_coupling = AffineCoupling(batch_shape=[None, 28, 28, 3],
+    x = tf.keras.Input([32, 32, 3])
+    x = tf.random.normal([2, 32, 32, 3])
+    affine_coupling = AffineCoupling(batch_shape=[None, 32, 32, 3],
                                      hidden_filters=512)
     # print (fwd)
     # print (affine_coupling.trainable_variables)
 
     y = affine_coupling.forward(x)
+    print(affine_coupling.inverse_log_det_jacobian(y, event_ndims=3))
     # z = affine_coupling.inverse(y)
     assert x.shape.as_list() == y.shape.as_list(
     ), 'Tensor Shape Error : In. {} not queal Out. {}'.format(
         x.shape, y.shape)
 
-    tf.keras.Model(inputs=x, outputs=y).summary()
+    # tf.keras.Model(inputs=x, outputs=y).summary()

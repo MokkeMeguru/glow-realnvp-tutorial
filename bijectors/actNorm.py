@@ -21,8 +21,8 @@ class ActNorm(tfp.bijectors.Bijector):
             mean, stdvar = self.getStat(x)
             self.initialized = True
             self.scale = tf.math.reciprocal(stdvar + 1e-6)
-            self.b = -mean
-        return x * self.scale + self.b
+            self.b = mean
+        return (x - self.b) * self.scale
 
     def _inverse(self, y):
         if not self.initialized:
@@ -30,7 +30,7 @@ class ActNorm(tfp.bijectors.Bijector):
             self.initialized = True
             self.scale = tf.math.reciprocal(stdvar + 1e-6)
             self.b = -mean
-        return (y - self.b) / self.scale
+        return y / self.scale + self.b
 
     def _inverse_log_det_jacobian(self, y):
         shape = tf.shape(y)[-3:]
@@ -39,3 +39,12 @@ class ActNorm(tfp.bijectors.Bijector):
         # expand batch_shape
         ildj = tf.tile([ildj], [tf.shape(y)[0]])
         return ildj
+
+def main():
+    actnorm = ActNorm([None, 28, 28, 3])
+    x = tf.random.normal([2, 28, 28, 3])
+    y = actnorm.forward(x)
+    z = actnorm.inverse(y)
+    loss = tf.reduce_mean(z - x)
+    print(actnorm.inverse_log_det_jacobian(y, event_ndims=3).numpy())
+    print(loss.numpy())
