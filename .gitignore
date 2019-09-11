@@ -2,3 +2,4 @@
 /__pycache__/
 mnists/
 bijectors/__pycache__/
+/*.pyc
