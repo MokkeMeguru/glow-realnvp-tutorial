@@ -29,7 +29,7 @@ Please use ~pip install -r requirements.txt~ in your virtualenv environment.
 
 2. normalizing flow tutorial
 
-   [[./tips/normalizing-flow-tutorial01.ipynb][normalizing flow tutorial]] (ja) something broken
+   [[./tips/normalizing-flow-tutorial01.ipynb][normalizing flow tutorial]] (ja) TODO: fix
 
 3. RealNVP tutorial (for vector) 
    
