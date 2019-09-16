@@ -3,3 +3,5 @@
 mnists/
 bijectors/__pycache__/
 /*.pyc
+/tips/checkpoints/
+*.pyc

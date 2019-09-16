@@ -1,0 +1,52 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+options: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+options: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+title: Tensorflow Probability x Flow-base Model
+#+date: <2019-09-16 月>
+#+author: meguru
+#+email: meguru@meguru-pc
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.3 (Org mode 9.2.4)
+
+
+* Environment
+  - Tensorflow 2.0.0 rc0
+  - Tensorflow Probability 0.8.0 rc0
+    
+
+Please use ~pip install -r requirements.txt~ in your virtualenv environment.
+
+* RoadMap
+  ja: japanese        
+  en: english     
+  
+1. Flow base model  tutorial    
+
+     [[./tips/flow-tutorial.ipynb][flow-base model tutorial]] (ja)
+
+2. normalizing flow tutorial
+
+   [[./tips/normalizing-flow-tutorial01.ipynb][normalizing flow tutorial]] (ja)
+
+3. RealNVP tutorial (for vector) 
+   
+   [[./tips/RealNVP_tutorial.ipynb][RealNVP Tutorial]] (ja)
+
+   [[./tips/RealNVP_tutorial_en.ipynb][RealNVP Tutorial]] (en)
+
+4. RealNVP tutorial (for image, MNIST)
+
+   [[./tips/RealNVP_mnist.ipynb][RealNVP MNIST Tutorial]] (ja)
+
+   [[./tips/RealNVP_mnist_en][RealNVP MNIST Tutorial]] (en)
+
+
+5. Glow tutorial (for image, MNIST)
+
+   [[./tips/glow_mnist.ipynb][Glow MNIST Tutorial]] (ja)
+
+   [[./tips/glow_mnist_en.ipynb][Glow MNIST Tutorial]] (en)
+
