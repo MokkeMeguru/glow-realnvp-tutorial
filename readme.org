@@ -41,7 +41,7 @@ Please use ~pip install -r requirements.txt~ in your virtualenv environment.
 
    [[./tips/RealNVP_mnist.ipynb][RealNVP MNIST Tutorial]] (ja)
 
-   [[./tips/RealNVP_mnist_en][RealNVP MNIST Tutorial]] (en)
+   [[./tips/RealNVP_mnist_en.ipynb][RealNVP MNIST Tutorial]] (en)
 
 
 5. Glow tutorial (for image, MNIST)
