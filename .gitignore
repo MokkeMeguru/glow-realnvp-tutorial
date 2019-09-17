@@ -7,3 +7,5 @@ bijectors/__pycache__/
 *.pyc
 *-checkpoint.ipynb
 /.ipynb_checkpoints/
+examples/models/.ipynb_checkpoints/
+tips/.ipynb_checkpoints/
