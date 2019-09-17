@@ -5,3 +5,5 @@ bijectors/__pycache__/
 /*.pyc
 /tips/checkpoints/
 *.pyc
+*-checkpoint.ipynb
+/.ipynb_checkpoints/
