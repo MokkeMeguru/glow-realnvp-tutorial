@@ -9,3 +9,4 @@ bijectors/__pycache__/
 /.ipynb_checkpoints/
 examples/models/.ipynb_checkpoints/
 tips/.ipynb_checkpoints/
+/realworld/checkpoints/
