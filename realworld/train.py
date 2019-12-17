@@ -12,6 +12,7 @@ from args import args
 from model import gen_flow
 from dataset import load_dataset
 from pathlib import Path
+from functools import reduce
 
 tfb = tfp.bijectors
 tfd = tfp.distributions
@@ -29,6 +30,7 @@ class Flow_trainer:
         self.loss = tf.keras.metrics.Mean(name='loss', dtype=tf.float32)
         self.train_dataset, self.test_dataset = load_dataset()
         self.epochs = args['epochs']
+        self.input_volume = reduce(lambda x, y: x * y, args['input_shape'])
         for sample in self.train_dataset.take(1):
             print('init loss (log_prob) {}'.format(self.calc_loss(sample)))
         self.setup_checkpoint()
@@ -61,7 +63,7 @@ class Flow_trainer:
 
         @tf.function
         def loss(target):
-            return -tf.reduce_mean(self.flow.log_prob(target['img']))
+            return -tf.reduce_mean(self.flow.log_prob(target['img'])) / (np.log(2.) * self.input_volume)
 
         for epoch in range(self.epochs):
             if flag:
