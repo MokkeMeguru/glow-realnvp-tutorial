@@ -35,7 +35,7 @@ jupyter-contrib-core==0.3.3
 jupyter-core==4.5.0
 jupyter-emacskeys==0.2.3
 jupyter-nbextensions-configurator==0.4.1
-jupyterlab==1.1.2
+jupyterlab==1.2.21
 jupyterlab-code-formatter==0.5.1
 jupyterlab-server==1.0.6
 Keras-Applications==1.0.8
