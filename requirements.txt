@@ -60,7 +60,7 @@ pickleshare==0.7.5
 ply==3.11
 prometheus-client==0.7.1
 prompt-toolkit==2.0.9
-protobuf==3.9.1
+protobuf==3.18.3
 ptyprocess==0.6.0
 pycodestyle==2.5.0
 pydot==1.4.1
